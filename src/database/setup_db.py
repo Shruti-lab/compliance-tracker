@@ -9,6 +9,10 @@ import sys
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 def create_database(host, port, user, password, db_name):
@@ -141,7 +145,7 @@ def main():
         'host': os.getenv('POSTGRES_HOST', 'localhost'),
         'port': os.getenv('POSTGRES_PORT', '5432'),
         'user': os.getenv('POSTGRES_USER', 'postgres'),
-        'password': os.getenv('POSTGRES_PASSWORD', ''),
+        'password': os.getenv('POSTGRES_PASSWORD', 'compliance123'),
         'db_name': os.getenv('POSTGRES_DB', 'compliance_tracker')
     }
     
